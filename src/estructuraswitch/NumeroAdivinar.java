@@ -19,9 +19,9 @@ public class NumeroAdivinar {
         System.out.println("Dime un número");
         int numero = sc.nextInt();
         int numero1;
-        int veces=1;
-        int veces2=1;
-
+        int veces = 1;
+        int veces2 = 1;
+        String volver = "S";
         if (numero == n) {
             System.out.println("Enhorabuena, has acertado");
         } else {
@@ -30,28 +30,37 @@ public class NumeroAdivinar {
                 numero1 = sc.nextInt();
                 veces++;
             } while (numero1 != n);
-            System.out.printf("Enhorabuena, has acertado después de %d intentos",veces);
+            System.out.printf("Enhorabuena, has acertado después de %d intentos%n", veces);
         }
+        System.out.println("¿Quieres volver a jugar? S para continuar. "
+                + "N para salir");
+       String volver2 = sc.next();
+        if(volver2.equalsIgnoreCase(volver)){
         int n2 = (int) (Math.random() * 20);
-        int numero2= sc.nextInt();
+            System.out.println("Dime otro número");
+        int numero2 = sc.nextInt();
         if (numero2 == n2) {
             System.out.println("Enhorabuena, has acertado");
         } else {
             do {
                 System.out.println("Inténtalo de nuevo");
-                System.out.println("Dime otro número");
+                
                 numero2 = sc.nextInt();
                 veces2++;
             } while (numero2 != n2);
-            if(veces2<veces){
-                System.out.printf("Enhorabuena, has acertado en %d intentos y has superado el record",veces2);
-            }else{
+            if (veces2 < veces) {
+                System.out.printf("Enhorabuena, has acertado en %d intentos y"
+                        + " has superado el record %n", veces2);
+            } else {
                 System.out.printf("Enhorabuena, has acertado en %d intentos "
-                        + "pero no has superado el record",veces2);
+                        + "pero no has superado el record%n", veces2);
             }
         }
-        
-        
-        
+
+    }else if(volver2.equalsIgnoreCase("N")){
+            System.out.println("Fin del Juego");
+        }else{
+            System.out.println("Ha introducido la letra incorrecta, Fin del Juego");
     }
+}
 }
